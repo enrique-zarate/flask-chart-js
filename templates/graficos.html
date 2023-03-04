@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Graficos</title>
+  </head>
+  <body>
+    <p class="text-3xl">Graficos</p>
+    <div class="w-1/3 h-1/3">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      // grafico 1
+      const ctx = document.getElementById("myChart");
+      // grafico 2
+      // const ctx2 = document.getElementById("myChart2");
+      // console.log(ctx2);
+      // parse json to js using jinja
+      const data = JSON.parse("{{ datos_json }}".replace(/&#34;/g, '"'));
+      // const data2 = JSON.parse("{{ datos_json2 }}".replace(/&#34;/g, '"'));
+
+      const tipo = "{{ tipo }}";
+
+      new Chart(ctx, {
+        type: tipo,
+        data: {
+          labels: data.ciudades,
+          datasets: [
+            {
+              label: "# of Votes",
+              data: data.estudiantes,
+              borderWidth: 5,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // new Chart(ctx2, {
+      //   type: "pie",
+      //   data: {
+      //     labels: data2.ciudades,
+      //     datasets: [
+      //       {
+      //         label: "# of Votes",
+      //         data: data2.estudiantes,
+      //         borderWidth: 5,
+      //       },
+      //     ],
+      //   },
+      //   options: {
+      //     scales: {},
+      //   },
+      // });
+    </script>
+  </body>
+</html>
