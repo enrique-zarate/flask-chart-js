@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grafico</title>
+  </head>
+  <body>
+    {{ data }}
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const ctx = document.getElementById("myChart");
+      // recibimos datos del backend con Jinja
+      const data = "{{ data }}";
+      // Parseamos el string a un objeto JavaScript
+      const dataObj = JSON.parse(data.replace(/&#34;/g, '"'));
+
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: dataObj.meses,
+          datasets: [
+            {
+              label: "Cantidad de Bitcoins por mes",
+              data: dataObj.bitcoins,
+              borderWidth: 5,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
