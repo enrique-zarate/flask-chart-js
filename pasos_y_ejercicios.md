@@ -24,6 +24,7 @@ Crear un nuevo endpoint que regrese uno de los graficos: /grafico/barras o /graf
 
 [1] [Chart.js](https://www.chartjs.org/)
 [2] [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+[2] [JavaScript Objects](https://es.javascript.info/object)
 
 # Parte 2: entidades y base de datos con Flask-SQLAlchemy y SQLite
 
