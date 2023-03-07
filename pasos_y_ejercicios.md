@@ -39,3 +39,11 @@ Importar una de las entidades en el archivo app.py y hacer un query a la base de
 Crear un endpoint que regrese una entidad de la base de datos.
 
 ## Paso 3
+
+# Models.py
+
+# init.py
+
+## Paso 1
+
+Importar el objeto db, Minero y Produccion de models.py en el archivo init_db.py
